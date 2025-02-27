@@ -10,9 +10,27 @@ import (
 
 // Download file downloader
 func Download(url, filePath string) error {
+
+	// print(url)
+	// print(url)
+	// print(url)
+
+	// print("\n")
+
 	res, err := http.Get(url)
+
+	/* 	print(res.Status)
+	   	print("\n") */
+
 	if err != nil {
 		return fmt.Errorf("get file error: %+v", err)
+	}
+
+	if res.Status != "200 OK" {
+		print(url)
+		print("\n")
+		return fmt.Errorf("get file error: %+v", err)
+
 	}
 	defer res.Body.Close()
 
